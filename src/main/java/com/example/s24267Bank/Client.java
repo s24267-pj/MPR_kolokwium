@@ -1,5 +1,7 @@
 package com.example.s24267Bank;
 
+import org.springframework.stereotype.Component;
+
 public class Client {
     private int id;
     private int saldo;

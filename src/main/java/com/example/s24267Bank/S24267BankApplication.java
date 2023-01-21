@@ -5,9 +5,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class S24267BankApplication {
+    private ClientService clientService;
 
-	public static void main(String[] args) {
-		SpringApplication.run(S24267BankApplication.class, args);
-	}
+    public S24267BankApplication(ClientService clientService) {
+        this.clientService = clientService;
+        clientService.registerClient(5, 200);
+        clientService.przelej(1,50);
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(S24267BankApplication.class, args);
+    }
 
 }
