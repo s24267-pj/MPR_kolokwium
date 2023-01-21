@@ -11,7 +11,10 @@ public class S24267BankApplication {
         this.clientService = clientService;
         clientService.registerClient(5, 200);
         clientService.przelej(1,520);
-        clientService.getClientData(5);
+        clientService.getClientData(2);
+        clientService.wplac(2,300);
+        clientService.getClientData(2);
+
     }
 
     public static void main(String[] args) {

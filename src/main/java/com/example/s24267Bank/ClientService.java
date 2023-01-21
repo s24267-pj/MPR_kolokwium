@@ -13,9 +13,15 @@ public class ClientService {
     }
 
     public void registerClient(int id, int saldo) {
-        clientStorage.getClientList().add(new Client(id, saldo));
+        List<Client> clientList = clientStorage.getClientList();
+        for (Client client : clientList) {
+            if (id == client.getId()) {
+                System.out.println("klient o podanym id istnieje!");
+                return;
+            }
+            clientStorage.getClientList().add(new Client(id, saldo));
         System.out.println("Uzytkownik o id: " + id + " został dodany z saldem: " + saldo);
-    }
+    }}
 
     public int currentMoney(int id) {
         List<Client> clientList = clientStorage.getClientList();
@@ -54,9 +60,11 @@ public class ClientService {
                 int saldo = client.getSaldo();
                 client.setSaldo(saldo + kwota);
                 System.out.println("Saldo powiekszone o " + kwota);
+                return new Info(currentMoney(id), Status.ACCEPTED);
             }
         }
-        return new Info(currentMoney(id), Status.ACCEPTED);
+        System.out.println("Uzytkownik o podanym id nie istnieje!");
+        return new Info(0, Status.DECLINED);
     }
 
     public void getClientData(int id) {
