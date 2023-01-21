@@ -13,7 +13,7 @@ public class ClientServiceTest {
 
     @Test
     void canRegister(){
-        clientService.registerClient(1,200);
+        clientService.registerClient(5,200);
         Assertions.assertTrue(clientStorage.getClientList().size()==5,"Nie udało sie zarejstrować. Id już istnieje.");
     }
 

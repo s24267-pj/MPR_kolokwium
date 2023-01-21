@@ -9,7 +9,7 @@ public class S24267BankApplication {
 
     public S24267BankApplication(ClientService clientService) {
         this.clientService = clientService;
-        clientService.registerClient(5, 200);
+        clientService.registerClient(7, 200);
         clientService.przelej(1,520);
         clientService.getClientData(2);
         clientService.wplac(2,300);

@@ -19,9 +19,11 @@ public class ClientService {
                 System.out.println("klient o podanym id istnieje!");
                 return;
             }
-            clientStorage.getClientList().add(new Client(id, saldo));
+
+        }
+        clientStorage.getClientList().add(new Client(id, saldo));
         System.out.println("Uzytkownik o id: " + id + " został dodany z saldem: " + saldo);
-    }}
+    }
 
     public int currentMoney(int id) {
         List<Client> clientList = clientStorage.getClientList();
