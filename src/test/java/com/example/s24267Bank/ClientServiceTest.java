@@ -17,4 +17,13 @@ public class ClientServiceTest {
         Assertions.assertTrue(clientStorage.getClientList().size()==5,"Nie udało sie zarejstrować. Id już istnieje.");
     }
 
+    @Test
+    void canAddMoney(){
+        int id = 1;
+        int stareSaldo = clientService.currentMoney(id);
+        clientService.wplac(id,200);
+
+        Assertions.assertTrue(stareSaldo != clientService.currentMoney(id), "Nie udało się powiększyć salda.");
+
+    }
 }
